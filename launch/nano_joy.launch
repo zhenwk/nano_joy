@@ -1,0 +1,17 @@
+<!-- launch file to start nano_joy_node-->
+<launch>
+    <!-- <param name="use_sim_time"  value="true"/> -->
+
+	<node name="joy_node" pkg="joy" type="joy_node" output = "screen">
+		<param name="dev" value="/dev/input/js0"/>
+	</node>
+
+    <node name="nano_joy" pkg="nano_joy" type="nano_joy_node" output="screen">
+	
+		<param name="max_roll"   value="20"    type="double"/>
+		<param name="max_pitch"  value="20"    type="double"/>
+		<param name="max_yaw"    value="20"    type="double"/>
+		<param name="max_thrust" value="40000" type="double"/> 
+
+    </node>
+</launch>
