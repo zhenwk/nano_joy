@@ -13,5 +13,36 @@
 		<param name="max_yaw"    value="20"    type="double"/>
 		<param name="max_thrust" value="40000" type="double"/> 
 
+		<param name="ctl_channel"   value="thrust" type="string"/>
+
+		<remap from="/nano_joy/crazyflieCommand"   to="/nano_quad_ros/crazyflieCommand"/>
     </node>
+
+
+	<node name="cf_position_controller" pkg="cf_position_controller" type="cf_controller_node" output="screen">
+
+		<param name="Kpx"	value="5"	type="double"/> 
+	    <param name="Kix"	value="0"	type="double"/>
+	    <param name="Kdx"   value="0"	type="double"/>
+
+	    <param name="Kpy"	value="5"	type="double"/>
+	    <param name="Kiy"	value="0"	type="double"/>
+		<param name="Kdy"	value="0"	type="double"/>
+
+	    <param name="Kpz"	value="10000" type="double"/>
+	    <param name="Kiz"	value="0"	 type="double"/>
+		<param name="Kdz"	value="0"	 type="double"/>
+
+	    <param name="intg_err_xlim"	value="10"	type="double"/>
+	    <param name="intg_err_ylim"	value="10"	type="double"/>
+		<param name="intg_err_zlim"	value="10"	type="double"/>
+
+	    <param name="cmd_rpy_lim"	 value="20"		type="double"/>
+	    <param name="cmd_thrust_lim" value="65000"	type="double"/>
+		<param name="ctl_msg_rate"	 value="30"		type="double"/>
+
+		<param name="weight_offset"	value="58000"	type="double"/>
+
+	</node>
+
 </launch>
